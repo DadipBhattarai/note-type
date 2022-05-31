@@ -1,6 +1,9 @@
 import React from "react";
+import { NoteContextState } from "../Context";
 
-const Done = ({ done, doneNote, setDoneNote }) => {
+const Done = ({ done }) => {
+  const { doneNote, setDoneNote } = NoteContextState();
+
   return (
     <div className="note-done">
       <p>{done}</p>

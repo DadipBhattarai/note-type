@@ -1,26 +1,14 @@
 import React from "react";
+import { NoteContextState } from "../Context";
 import Note from "./Note";
 
-const NoteList = ({
-  notes,
-  handleDelete,
-  handleDone,
-  doneNote,
-  setDoneNote,
-}) => {
-  const notesLength = notes.length;
+const NoteList = () => {
+  const { notes } = NoteContextState();
+
   return (
     <div className="noteList">
       {notes.map((note, index) => (
-        <Note
-          key={index}
-          index={index}
-          handleDone={handleDone}
-          {...note}
-          handleDelete={handleDelete}
-          doneNote={doneNote}
-          setDoneNote={setDoneNote}
-        />
+        <Note key={index} index={index} {...note} />
       ))}
     </div>
   );

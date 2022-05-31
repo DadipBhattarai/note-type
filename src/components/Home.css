@@ -79,6 +79,15 @@ input {
   grid-template-columns: auto;
   row-gap: 10px;
 }
+.done-list2 {
+  position: fixed;
+  width: 250px;
+  padding: 10px 0;
+  margin-left: -170px;
+  display: grid;
+  grid-template-columns: auto;
+  row-gap: 10px;
+}
 
 .note-done {
   margin: 0 auto;
