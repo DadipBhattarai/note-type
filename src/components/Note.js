@@ -1,6 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import { NoteContextState } from "../Context";
 
-const Note = ({ text, index, handleDelete, doneNote, setDoneNote }) => {
+const Note = ({ text, index }) => {
+  const { notes, setNotes, doneNote, setDoneNote } = NoteContextState();
+
+  const handleDelete = (id) => {
+    const deleleNote = notes.filter((note, index) => index !== id);
+    setNotes(deleleNote);
+  };
+
   return (
     <>
       <div className="note">

@@ -1,6 +1,27 @@
 import React from "react";
+import { NoteContextState } from "../Context";
 
-const AddInput = ({ characterLimit, handleAdd, handleChange, input }) => {
+const AddInput = () => {
+  const { input, setInput, notes, setNotes } = NoteContextState();
+  const characterLimit = 100;
+
+  const handleChange = (e) => {
+    if (characterLimit - e.target.value.length >= 0) {
+      setInput(e.target.value);
+    }
+  };
+
+  const handleAdd = () => {
+    const newNote = {
+      text: input,
+    };
+
+    const newNotes = [...notes, newNote];
+    if (input !== "") setNotes(newNotes);
+
+    setInput("");
+  };
+
   return (
     <>
       <div className="input-field">

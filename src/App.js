@@ -1,12 +1,15 @@
 import "./App.css";
 import Home from "./components/Home";
 import "./components/Home.css";
+import Context from "./Context";
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <Context>
+      <div className="App">
+        <Home />
+      </div>
+    </Context>
   );
 }
 

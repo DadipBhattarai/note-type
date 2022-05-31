@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { NoteContextState } from "../Context";
 import DoneList from "./DoneList";
 
-const Header = ({ doneNote, setDoneNote }) => {
-  const [show, setShow] = useState(false);
+const Header = () => {
+  const { show, setShow, doneNote } = NoteContextState();
 
   const handleShow = () => {
-    setShow((previousState) => !previousState);
+    setShow(!show);
   };
 
   return (
@@ -16,14 +17,7 @@ const Header = ({ doneNote, setDoneNote }) => {
           <button className="done-buton" onClick={handleShow}>
             Done
           </button>
-          {show && (
-            <DoneList
-              doneNote={doneNote}
-              setDoneNote={setDoneNote}
-              show={show}
-              setShow={setShow}
-            />
-          )}
+          {show && <DoneList />}
 
           <sup className={doneNote.length >= 1 ? "batch-full" : "batch"}>
             {doneNote.length}
