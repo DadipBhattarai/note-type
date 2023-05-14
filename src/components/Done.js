@@ -6,7 +6,7 @@ const Done = ({ done }) => {
 
   return (
     <div className="note-done">
-      <p>{done}</p>
+      <p>{done} Hello world</p>
       <div className="actions">
         <button
           onClick={() => setDoneNote(doneNote.filter((text) => text !== done))}
